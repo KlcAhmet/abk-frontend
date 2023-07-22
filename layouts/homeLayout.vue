@@ -1,7 +1,7 @@
 <script setup lang='ts'></script>
 
 <template>
-  <div>
+  <div class='homeLayout h-screen bg-no-repeat bg-cover'>
     <Header />
     <main>
       <slot />
@@ -11,5 +11,6 @@
 </template>
 
 <style scoped lang='sass'>
-
+.homeLayout
+  background-image: url('@/assets/img/ast1.jpeg')
 </style>
