@@ -1,5 +1,4 @@
-<script setup lang='ts'>
-</script>
+<script setup lang='ts'></script>
 
 <template>
   <header class='relative h-24 flex items-center px-5'>
@@ -9,15 +8,15 @@
       </figure>
     </div>
     <nav class='flex-none ml-auto'>
-      <ul class='flex flex-row flex-nowrap items-center'>
+      <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
         <li>
           <NuxtLink to='/about'>About</NuxtLink>
         </li>
         <li>
-          <NuxtLink to='/posts/1'>Post 1</NuxtLink>
+          <NuxtLink to='/career'>Career</NuxtLink>
         </li>
         <li>
-          <NuxtLink to='/posts/2'>Post 2</NuxtLink>
+          <NuxtLink to='/contributions'>Contributions</NuxtLink>
         </li>
       </ul>
     </nav>
