@@ -10,7 +10,7 @@
     <nav class='flex-none ml-auto'>
       <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
         <li>
-          <NuxtLink to='/about'>Aboutt</NuxtLink>
+          <NuxtLink to='/about'>Abouttt</NuxtLink>
         </li>
         <li>
           <NuxtLink to='/career'>Career</NuxtLink>
