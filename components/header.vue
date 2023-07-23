@@ -3,7 +3,6 @@
 const langSelectVisible = ref(true);
 const { locale, t } = useI18n();
 const route = useRoute();
-console.log(route);
 
 function changeLangVisible(): void {
   langSelectVisible.value = !langSelectVisible.value;
