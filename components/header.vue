@@ -24,11 +24,11 @@ const changeNavVisible = (val?: boolean): void => {
 <template>
   <!-- mobile -->
   <header class='lg:hidden p-3'>
-    <div class='w-48 p-1 bg-sky-900 rounded'>
+    <div class='relative w-48 p-1 bg-sky-700/[0.65]' :class="navVisible ? 'rounded-t': 'rounded'">
       <div class='flex flex-nowrap justify-between'>
         <button type='button' @click='changeNavVisible()' class='flex items-center flex-nowrap w-full'>
           <img class='w-8' src='@/assets/img/menu-nav.svg' alt='menu logo'>
-          <span class='ml-2 text-white font-bold'>{{ routeName }}</span>
+          <span class='ml-2 text-rose-300 font-bold'>{{ routeName }}</span>
         </button>
         <div class='flex'>
           <button v-if='langSelectVisible' type='button' class='rounded-full'
@@ -41,22 +41,22 @@ const changeNavVisible = (val?: boolean): void => {
           </select>
         </div>
       </div>
-      <div v-if='navVisible' class='border-t border-white mt-2 pt-1'>
+      <div v-if='navVisible' class='absolute w-48 bg-sky-700/[0.65] left-0 rounded-b border-t border-white mt-1 p-1'>
         <nav>
-          <ul class='text-white font-medium'>
+          <ul class='link font-medium'>
             <li>
-              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/'>{{ t('index') }}</NuxtLink>
+              <NuxtLink @click='changeNavVisible(true)' to='/'>{{ t('index') }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/about'>{{ t('about') }}
+              <NuxtLink @click='changeNavVisible(true)' to='/about'>{{ t('about') }}
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/career'>{{ t('career') }}
+              <NuxtLink @click='changeNavVisible(true)' to='/career'>{{ t('career') }}
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/contributions'>
+              <NuxtLink @click='changeNavVisible(true)' to='/contributions'>
                 {{ t('contributions') }}
               </NuxtLink>
             </li>
@@ -74,18 +74,18 @@ const changeNavVisible = (val?: boolean): void => {
     </div>
     <div class='ml-auto flex flex-nowrap py-3 px-8 bg-sky-700/[0.65] rounded'>
       <nav>
-        <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
+        <ul class='link flex flex-row flex-nowrap items-center space-x-4 text-xl font-bold'>
           <li>
-            <NuxtLink class='hover:text-sky-500' to='/'>{{ t('index') }}</NuxtLink>
+            <NuxtLink to='/'>{{ t('index') }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class='hover:text-sky-500' to='/about'>{{ t('about') }}</NuxtLink>
+            <NuxtLink to='/about'>{{ t('about') }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class='hover:text-sky-500' to='/career'>{{ t('career') }}</NuxtLink>
+            <NuxtLink to='/career'>{{ t('career') }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class='hover:text-sky-500' to='/contributions'>{{ t('contributions') }}</NuxtLink>
+            <NuxtLink to='/contributions'>{{ t('contributions') }}</NuxtLink>
           </li>
         </ul>
       </nav>
@@ -104,8 +104,13 @@ const changeNavVisible = (val?: boolean): void => {
 </template>
 
 <style scoped lang='sass'>
+.link
+  @apply text-rose-300
+  &:hover
+    @apply text-rose-800
+
 .router-link-active
-  @apply text-sky-500 underline
+  @apply text-rose-800 underline
 </style>
 
 <i18n lang='yaml'>
