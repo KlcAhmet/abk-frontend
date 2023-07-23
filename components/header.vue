@@ -1,4 +1,15 @@
-<script setup lang='ts'></script>
+<script setup lang='ts'>
+const langSelectVisible = ref(true);
+const { locale } = useI18n();
+
+function changeLangVisible(): void {
+  langSelectVisible.value = !langSelectVisible.value;
+
+  setTimeout(() => {
+    langSelectVisible.value = true;
+  }, 5000);
+}
+</script>
 
 <template>
   <header class='relative h-24 flex items-center px-5'>
@@ -10,16 +21,26 @@
     <nav class='flex-none ml-auto'>
       <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
         <li>
-          <NuxtLink to='/about'>About</NuxtLink>
+          <NuxtLink class='hover:text-sky-500' to='/about'>About</NuxtLink>
         </li>
         <li>
-          <NuxtLink to='/career'>Career</NuxtLink>
+          <NuxtLink class='hover:text-sky-500' to='/career'>Career</NuxtLink>
         </li>
         <li>
-          <NuxtLink to='/contributions'>Contributions</NuxtLink>
+          <NuxtLink class='hover:text-sky-500' to='/contributions'>Contributions</NuxtLink>
         </li>
       </ul>
     </nav>
+    <div class='ml-4 flex'>
+      <button v-if='langSelectVisible' type='button' class='bg-sky-500 hover:bg-sky-700 rounded-full'
+              @click='changeLangVisible'>
+        <img class='w-8' src='@/assets/img/world.svg' alt='world img' />
+      </button>
+      <select v-else v-model='locale' @change='changeLangVisible'>
+        <option value='tr'>TR</option>
+        <option value='en'>EN</option>
+      </select>
+    </div>
   </header>
 </template>
 
