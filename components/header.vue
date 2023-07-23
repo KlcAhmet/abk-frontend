@@ -93,9 +93,9 @@ const changeNavVisible = (val?: boolean): void => {
       <div class='ml-4 flex'>
         <button v-if='langSelectVisible' type='button'
                 @click='changeLangVisible'>
-          <img class='w-8' src='@/assets/img/world.svg' alt='world img' />
+          <img class='w-10 h-8' src='@/assets/img/world.svg' alt='world img' />
         </button>
-        <select v-else v-model='locale' @change='changeLangVisible'>
+        <select v-else v-model='locale' @change='changeLangVisible' class='w-10 h-8'>
           <option value='tr'>TR</option>
           <option value='en'>EN</option>
         </select>
