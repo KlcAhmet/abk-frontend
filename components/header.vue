@@ -72,7 +72,7 @@ const changeNavVisible = (val?: boolean): void => {
         <img src='@/assets/img/astronaut-icon.svg' alt='logo' />
       </figure>
     </div>
-    <div class='ml-auto flex flex-nowrap py-3 px-8 bg-sky-700 rounded'>
+    <div class='ml-auto flex flex-nowrap py-3 px-8 bg-sky-700/[0.65] rounded'>
       <nav>
         <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
           <li>
