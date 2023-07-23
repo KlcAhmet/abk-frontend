@@ -2,6 +2,8 @@
 
 const langSelectVisible = ref(true);
 const { locale, t } = useI18n();
+const route = useRoute();
+console.log(route);
 
 function changeLangVisible(): void {
   langSelectVisible.value = !langSelectVisible.value;
@@ -13,7 +15,7 @@ function changeLangVisible(): void {
 </script>
 
 <template>
-  <header class='relative h-24 flex items-center px-5'>
+  <header class='relative h-24 flex items-center px-5 border-b-2 border-sky-200/100'>
     <div class='absolute inset-x-1/2 transform -translate-x-1/2 w-16 h-16 -ml-5'>
       <figure>
         <img src='@/assets/img/astronaut-icon.svg' alt='logo' />
@@ -21,6 +23,9 @@ function changeLangVisible(): void {
     </div>
     <nav class='flex-none ml-auto'>
       <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
+        <li>
+          <NuxtLink class='hover:text-sky-500' :class='route.name' to='/'>{{ t('home') }}</NuxtLink>
+        </li>
         <li>
           <NuxtLink class='hover:text-sky-500' to='/about'>{{ t('about') }}</NuxtLink>
         </li>
@@ -46,14 +51,18 @@ function changeLangVisible(): void {
 </template>
 
 <style scoped lang='sass'>
+.router-link-active
+  @apply text-sky-500 underline
 </style>
 
 <i18n lang='yaml'>
 tr:
+  home: "Anasayfa"
   about: "Hakkımda"
   career: "Kariyer"
   contributions: "Katkılar"
 en:
+  home: "Home"
   about: "About"
   career: "Career"
   contributions: "Contributions"

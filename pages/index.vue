@@ -6,10 +6,12 @@ definePageMeta({
 
 <template>
   <div>
-    <p class='text-3xl font-bold underline'>hello index page</p>
+    <h1>Ahmet Batuhan Kılıç</h1>
+    <h2>Bilgisayar Mühendisi</h2>
   </div>
 </template>
 
-<style scoped lang='sass'>
-
+<style lang='sass'>
+.homeLayout
+  background-image: url('@/assets/img/ast1.jpeg')
 </style>
