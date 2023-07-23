@@ -1,6 +1,7 @@
 <script setup lang='ts'>
+
 const langSelectVisible = ref(true);
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 function changeLangVisible(): void {
   langSelectVisible.value = !langSelectVisible.value;
@@ -21,13 +22,13 @@ function changeLangVisible(): void {
     <nav class='flex-none ml-auto'>
       <ul class='flex flex-row flex-nowrap items-center space-x-4 text-white text-xl font-bold'>
         <li>
-          <NuxtLink class='hover:text-sky-500' to='/about'>About</NuxtLink>
+          <NuxtLink class='hover:text-sky-500' to='/about'>{{ t('about') }}</NuxtLink>
         </li>
         <li>
-          <NuxtLink class='hover:text-sky-500' to='/career'>Career</NuxtLink>
+          <NuxtLink class='hover:text-sky-500' to='/career'>{{ t('career') }}</NuxtLink>
         </li>
         <li>
-          <NuxtLink class='hover:text-sky-500' to='/contributions'>Contributions</NuxtLink>
+          <NuxtLink class='hover:text-sky-500' to='/contributions'>{{ t('contributions') }}</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -46,3 +47,14 @@ function changeLangVisible(): void {
 
 <style scoped lang='sass'>
 </style>
+
+<i18n lang='yaml'>
+tr:
+  about: "Hakkımda"
+  career: "Kariyer"
+  contributions: "Katkılar"
+en:
+  about: "About"
+  career: "Career"
+  contributions: "Contributions"
+</i18n>
