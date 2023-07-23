@@ -13,5 +13,5 @@ definePageMeta({
 
 <style lang='sass'>
 .homeLayout
-  background-image: url('@/assets/img/ast1.jpeg')
+  background-image: url('@/assets/img/ast3.jpeg')
 </style>
