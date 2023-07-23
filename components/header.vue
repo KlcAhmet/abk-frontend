@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 
-const { locale, t } = useI18n();
+const { locale, t, setLocale } = useI18n();
 const route = useRoute();
 const routeName = computed(() => t(route.name as string));
 const langSelectVisible = ref(true);
@@ -8,6 +8,7 @@ const navVisible = ref(false);
 
 function changeLangVisible(): void {
   langSelectVisible.value = !langSelectVisible.value;
+  setLocale(locale.value);
 
   setTimeout(() => {
     langSelectVisible.value = true;
