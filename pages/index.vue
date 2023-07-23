@@ -6,7 +6,7 @@ definePageMeta({
 
 <template>
   <div class='h-full flex items-center'>
-    <div class='w-80 bg-sky-900/50 rounded-md text-white ml-20 p-5 text-center'>
+    <div class='w-80 bg-sky-900/[0.73] rounded-md text-white mx-auto lg:ml-20 p-5 text-center'>
       <h1 class='text-2xl font-extrabold'>Ahmet Batuhan Kılıç</h1>
       <h2 class='text-xl font-medium'>Bilgisayar Mühendisi</h2>
       <div class='mt-5'>
