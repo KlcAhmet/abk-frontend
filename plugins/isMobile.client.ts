@@ -1,7 +1,7 @@
 export default defineNuxtPlugin({
   name: 'isMobile',
   enforce: 'pre', // or 'pre'
-  async setup(nuxtApp): Promise<boolean> {
+  async setup(nuxtApp) {
     const userAgent: string = navigator.userAgent.toLowerCase();
     const mobileKeywords: string[] = ['android', 'iphone', 'ipod', 'blackberry', 'windows phone'];
     return {
