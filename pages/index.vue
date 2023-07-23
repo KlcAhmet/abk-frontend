@@ -5,9 +5,39 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
-    <h1>Ahmet Batuhan Kılıç</h1>
-    <h2>Bilgisayar Mühendisi</h2>
+  <div class='h-full flex items-center'>
+    <div class='w-80 bg-sky-900/50 rounded-md text-white ml-20 p-5 text-center'>
+      <h1 class='text-2xl font-extrabold'>Ahmet Batuhan Kılıç</h1>
+      <h2 class='text-xl font-medium'>Bilgisayar Mühendisi</h2>
+      <div class='mt-5'>
+        <ul class='flex justify-center items-center space-x-2'>
+          <li>
+            <a class='flex items-center' href='https://github.com/KlcAhmet'
+               target='_blank' rel='noopener noreferrer nofollow'>
+              <img class='h-9 w-8' src='@/assets/img/github.svg' alt='github logo' />
+            </a>
+          </li>
+          <li>
+            <a class='flex items-center' href='https://www.linkedin.com/in/ahmet-batuhan-kılıç-b88975129/'
+               target='_blank' rel='noopener noreferrer nofollow'>
+              <img class='h-7 w-10' src='@/assets/img/linkedin.svg' alt='linkedin logo' />
+            </a>
+          </li>
+          <li>
+            <a class='flex items-center' href='https://www.instagram.com/ab01001011/'
+               target='_blank' rel='noopener noreferrer nofollow'>
+              <img class='h-7 w-7' src='@/assets/img/instagram.svg' alt='instagram logo' />
+            </a>
+          </li>
+          <li>
+            <a class='flex items-center' href='https://g.page/AhmetBatuhanKilic?share'
+               target='_blank' rel='noopener noreferrer nofollow'>
+              <img class='h-9 w-9' src='@/assets/img/google.svg' alt='google logo' />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
