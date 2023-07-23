@@ -2,7 +2,7 @@
 
 <template>
   <footer>
-    <p class='text-3xl font-bold underline'>hello header</p>
+    <p class='text-xl font-bold underline'>hello footer</p>
   </footer>
 </template>
 
