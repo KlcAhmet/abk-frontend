@@ -7,6 +7,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       white: '#ffffff',
+      black: '#000000',
       sky: {
         200: '#bae6fd',
         300: '#7dd3fc',
