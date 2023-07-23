@@ -1,9 +1,10 @@
 <script setup lang='ts'>
 
-const langSelectVisible = ref(true);
 const { locale, t } = useI18n();
 const route = useRoute();
 const routeName = computed(() => t(route.name as string));
+const langSelectVisible = ref(true);
+const navVisible = ref(false);
 
 function changeLangVisible(): void {
   langSelectVisible.value = !langSelectVisible.value;
@@ -12,14 +13,54 @@ function changeLangVisible(): void {
     langSelectVisible.value = true;
   }, 5000);
 }
+
+const changeNavVisible = (val?: boolean): void => {
+  if (val) navVisible.value = false;
+  else navVisible.value = !navVisible.value;
+
+};
 </script>
 
 <template>
   <header class='lg:hidden p-3'>
-    <div class='inline-block'>
-      <div class='p-1 bg-sky-300 rounded flex items-center flex-nowrap'>
-        <img class='w-8' src='@/assets/img/menu-nav.svg' alt='menu logo'>
-        <h6 class='ml-2'>{{ routeName }}</h6>
+    <div class='w-48 p-1 bg-sky-900 rounded'>
+      <div class='flex flex-nowrap justify-between'>
+        <button type='button' @click='changeNavVisible()' class='flex items-center flex-nowrap w-full'>
+          <img class='w-8' src='@/assets/img/menu-nav.svg' alt='menu logo'>
+          <span class='ml-2 text-white font-bold'>{{ routeName }}</span>
+        </button>
+        <div class='flex'>
+          <button v-if='langSelectVisible' type='button' class='rounded-full'
+                  @click='changeLangVisible'>
+            <img class='w-7' src='@/assets/img/world.svg' alt='world img' />
+          </button>
+          <select v-else v-model='locale' @change='changeLangVisible'>
+            <option value='tr'>TR</option>
+            <option value='en'>EN</option>
+          </select>
+        </div>
+      </div>
+      <div v-if='navVisible' class='border-t border-white mt-2 pt-1'>
+        <nav>
+          <ul class='text-white font-medium'>
+            <li>
+              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/'>{{ t('index') }}</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/about'>{{ t('about') }}
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/career'>{{ t('career') }}
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink @click='changeNavVisible(true)' class='hover:text-sky-500' to='/contributions'>
+                {{ t('contributions') }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
