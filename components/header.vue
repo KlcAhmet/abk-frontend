@@ -2,7 +2,7 @@
 
 const { locale, t, setLocale } = useI18n();
 const route = useRoute();
-const routeName = computed(() => t(route.name as string));
+const routeName = computed(() => route.name as string || 'index');
 const langSelectVisible = ref(true);
 const navVisible = ref(false);
 
@@ -29,7 +29,7 @@ const changeNavVisible = (val?: boolean): void => {
       <div class='flex flex-nowrap justify-between'>
         <button type='button' @click='changeNavVisible()' class='flex items-center flex-nowrap w-full'>
           <img class='w-8' src='@/assets/img/menu-nav.svg' alt='menu logo'>
-          <span class='ml-2 text-rose-300 font-bold'>{{ routeName }}</span>
+          <span class='ml-2 text-rose-300 font-bold'>{{ t(routeName) }}</span>
         </button>
         <div class='flex'>
           <button v-if='langSelectVisible' type='button' class='rounded-full'
