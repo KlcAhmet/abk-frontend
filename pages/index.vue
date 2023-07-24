@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { locale, t } = useI18n();
+const { t } = useI18n();
 
 definePageMeta({
   layout: 'home-layout',
