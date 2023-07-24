@@ -43,11 +43,6 @@ definePageMeta({
   </div>
 </template>
 
-<style lang='sass'>
-.homeLayout
-  background-image: url('@/assets/img/ast1.jpeg')
-</style>
-
 <i18n lang='yaml'>
 tr:
   name: "Ahmet Batuhan Kılıç"
