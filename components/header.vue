@@ -12,7 +12,7 @@ function changeLangVisible(): void {
 
   setTimeout(() => {
     langSelectVisible.value = true;
-  }, 5000);
+  }, 8000);
 }
 
 const changeNavVisible = (val?: boolean): void => {
