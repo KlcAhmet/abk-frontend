@@ -12,7 +12,7 @@ function changeLangVisible(): void {
 
   setTimeout(() => {
     langSelectVisible.value = true;
-  }, 5000);
+  }, 8000);
 }
 
 const changeNavVisible = (val?: boolean): void => {
@@ -107,8 +107,10 @@ const changeNavVisible = (val?: boolean): void => {
 <style scoped lang='sass'>
 .link
   @apply text-rose-300
-  &:hover
-    @apply text-rose-800
+  li
+    a
+      &:hover
+        @apply text-rose-800
 
 .router-link-active
   @apply text-rose-800 underline

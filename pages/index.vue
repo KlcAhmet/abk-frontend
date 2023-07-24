@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { locale, t } = useI18n();
+const { t } = useI18n();
 
 definePageMeta({
   layout: 'home-layout',
@@ -42,11 +42,6 @@ definePageMeta({
     </div>
   </div>
 </template>
-
-<style lang='sass'>
-.homeLayout
-  background-image: url('@/assets/img/ast1.jpeg')
-</style>
 
 <i18n lang='yaml'>
 tr:
