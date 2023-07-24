@@ -1,11 +1,7 @@
 <script setup lang='ts'>
-// default props available on error.vue
-const props = defineProps({
-  error: Object,
-});
 const { t } = useI18n();
-const error = <Ref>useError();
-const statusCode = computed(() => error.value.statusCode);
+const error = useError();
+const statusCode = computed(() => error.value?.statusCode);
 
 // clear error and redirect to home page
 const handleError = () => clearError({ redirect: '/' });
@@ -43,7 +39,7 @@ const handleError = () => clearError({ redirect: '/' });
 <i18n lang='yaml'>
 tr:
   home: "Anasayfa"
-  404: "Ooops! Sayfa yok gibi görünüyor. Lütfen başka bir rota deneyin"
+  404: "Ooops! Sayfa yok gibi görünüyor. Lütfen başka bir rota deneyin."
   else: "Dünya dışı bir hata yaşandı!"
 en:
   home: "Home"
