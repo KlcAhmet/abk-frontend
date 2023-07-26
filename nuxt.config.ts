@@ -6,6 +6,9 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',
   ],
+  runtimeConfig: {
+    mongoUrl: process.env.MONGO_URL,
+  },
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'tr',
