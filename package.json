@@ -16,6 +16,7 @@
     "nuxt": "^3.6.5"
   },
   "dependencies": {
+    "mongoose": "^7.4.1",
     "sass": "^1.64.1"
   }
 }
