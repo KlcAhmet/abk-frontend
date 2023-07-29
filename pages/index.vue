@@ -37,6 +37,12 @@ definePageMeta({
               <img class='h-9 w-9' src='@/assets/img/google.svg' alt='google logo' />
             </a>
           </li>
+          <li>
+            <a class='flex items-center' href='mailto:ahmetbatukilic@gmail.com' target='_blank'
+               rel='noopener noreferrer nofollow'>
+              <img class='h-9 w-9' src='@/assets/img/mail.svg' alt='mail logo' />
+            </a>
+          </li>
         </ul>
       </div>
     </div>
