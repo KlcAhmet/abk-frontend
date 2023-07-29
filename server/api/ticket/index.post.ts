@@ -23,6 +23,7 @@ router.post('/api/ticket', defineEventHandler(async (event) => {
       mail,
       message,
     });
+    console.log(newTicket);
     return {
       status: 200,
     };
