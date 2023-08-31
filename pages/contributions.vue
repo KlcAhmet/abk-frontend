@@ -6,15 +6,19 @@ definePageMeta({
 
 <template>
   <div class='h-full flex flex-col space-y-4 justify-center lg:items-start ml-10 lg:ml-20'>
-    <div class='w-40 lg:w-80 bg-sky-900/[0.73] rounded-md p-4'>
+    <a class='w-40 lg:w-80 bg-sky-900/[0.73] rounded-md p-4'
+       href='https://kondukto.io/'
+       target='_blank' rel='noopener noreferrer nofollow'>
       <img src='@/assets/img/kondukto.webp' class='h-4 lg:h-7 m-auto' alt='kondukto' />
-    </div>
-    <div class='w-40 lg:w-80 bg-sky-900/[0.73] rounded-md p-4'>
+    </a>
+    <a class='w-40 lg:w-80 bg-sky-900/[0.73] rounded-md p-4' href='https://onedio.com/'
+       target='_blank' rel='noopener noreferrer nofollow'>
       <img src='@/assets/img/onedio.svg' class='h-4 lg:h-7 m-auto' alt='onedio.com' />
-    </div>
-    <div class='w-40 lg:w-80 bg-sky-900/[0.73] rounded-md p-4'>
+    </a>
+    <a class='w-40 lg:w-80 bg-sky-900/[0.73] rounded-md p-4' href='https://getmagnus.com/'
+       target='_blank' rel='noopener noreferrer nofollow'>
       <img src='@/assets/img/magnus.svg' class='h-4 lg:h-7 m-auto' alt='magnus' />
-    </div>
+    </a>
   </div>
 </template>
 
