@@ -1,14 +1,5 @@
 <script setup lang='ts'>
 const { t } = useI18n();
-onMounted(async () => {
-  try {
-    const { data: count } = await useFetch('https://api.ahmetbatukilic.com:3000/ping');
-    console.log(count.value);
-
-  } catch (e) {
-    console.log(e);
-  }
-});
 
 definePageMeta({
   layout: 'home-layout',
