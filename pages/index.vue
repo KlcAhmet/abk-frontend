@@ -1,6 +1,9 @@
 <script setup lang='ts'>
 const { t } = useI18n();
 
+const users = await $fetch('https://dev.ahmetbatukilic.com:3000/ping').catch((error) => error.data);
+console.log(users);
+
 definePageMeta({
   layout: 'home-layout',
 });
