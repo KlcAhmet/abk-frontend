@@ -1,19 +1,16 @@
-import { createRouter, defineEventHandler, useBase } from 'h3';
+import { defineEventHandler } from 'h3';
 
-interface IRequestBody {
-  name: String,
-  mail: String,
-  message: String,
-}
-
-const router = createRouter();
-router.get('/api/ping', defineEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   try {
-
-    console.log('>ping<');
+    /*console.log(event);*/
+    const body = await event.fetch('https://dev.ahmetbatukilic.com:3000/ping')
+      .then(res => res.json())
+      .catch(err => console.log(err));
+    console.log(body);
     return {
       type: 'get',
       status: 200,
+      body: body,
     };
   } catch (err) {
     console.dir('err-ping >>>', err);
@@ -23,6 +20,4 @@ router.get('/api/ping', defineEventHandler(async (event) => {
       status: 500,
     };
   }
-}));
-
-export default useBase('ping', router.handler);
+});

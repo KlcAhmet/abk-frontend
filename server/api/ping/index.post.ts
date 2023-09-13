@@ -1,4 +1,4 @@
-import { createRouter, defineEventHandler, readBody, useBase } from 'h3';
+import { defineEventHandler, readBody } from 'h3';
 
 interface IRequestBody {
   name: String,
@@ -6,8 +6,8 @@ interface IRequestBody {
   message: String,
 }
 
-const router = createRouter();
-router.post('/api/ping', defineEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
+
   const { name, mail, message }: IRequestBody = await readBody<IRequestBody>(event);
   try {
     if (![name, mail, message].every(Boolean)) {
@@ -32,6 +32,4 @@ router.post('/api/ping', defineEventHandler(async (event) => {
       status: 500,
     };
   }
-}));
-
-export default useBase('ping', router.handler);
+});

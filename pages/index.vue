@@ -10,7 +10,6 @@ const data = {
   message: 'test message',
 };
 
-console.log(process.client ? 'in Client' : 'in Server');
 const users = await $fetch('/api/ping', {
   method: 'GET',
   /*body: data,*/
@@ -19,6 +18,7 @@ const users = await $fetch('/api/ping', {
 });
 
 console.log('users >>>', users);
+
 
 </script>
 
