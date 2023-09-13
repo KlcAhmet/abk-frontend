@@ -1,20 +1,24 @@
 import { defineEventHandler } from 'h3';
 
 export default defineEventHandler(async (event) => {
-  const url = process.env.DEV_URL;
+  const URL = process.env.URL;
 
   try {
     /*console.log(event);*/
-    const body = await event.fetch(`${url}/ping`)
+    const body = await event.fetch(`${URL}/ping`)
       .then(res => res.json())
-      .catch(err => console.log(err));
+      .catch(err => err.json());
     return {
       type: 'get',
-      status: 200,
-      body: body,
+      status: body.error ? body.error.statusCode : 200,
+      body: {
+        ...body,
+        url: body.error && URL,
+      },
+
     };
   } catch (err) {
-    console.dir('err-ping >>>', err);
+    console.log('err-ping >>>', err);
 
     event.res.statusCode = 500;
     return {
