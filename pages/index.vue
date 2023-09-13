@@ -1,12 +1,25 @@
 <script setup lang='ts'>
-const { t } = useI18n();
-
-const users = await $fetch('https://dev.ahmetbatukilic.com:3000/ping').catch((error) => error.data);
-console.log(users);
-
 definePageMeta({
   layout: 'home-layout',
 });
+const { t } = useI18n();
+
+const data = {
+  name: 'Ahmet',
+  mail: 'ah@gmail.com',
+  message: 'test message',
+};
+
+console.log(process.client ? 'in Client' : 'in Server');
+const users = await $fetch('/api/ping', {
+  method: 'GET',
+  /*body: data,*/
+}).catch((error) => {
+  console.log('error >>>', error);
+});
+
+console.log('users >>>', users);
+
 </script>
 
 <template>
