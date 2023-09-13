@@ -1,9 +1,25 @@
 <script setup lang='ts'>
-const { t } = useI18n();
-
 definePageMeta({
   layout: 'home-layout',
 });
+const { t } = useI18n();
+
+const body = {
+  name: 'Ahmet',
+  mail: 'ah@gmail.com',
+  message: 'test message',
+};
+
+const client = process.server || await $fetch('/api/ping', {
+  method: 'GET',
+  /*body: data,*/
+}).catch((error) => {
+  console.log('error >>>', error);
+});
+
+console.log('client >>>', client);
+
+
 </script>
 
 <template>
