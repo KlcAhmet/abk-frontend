@@ -1,12 +1,13 @@
 import { defineEventHandler } from 'h3';
 
 export default defineEventHandler(async (event) => {
+  const url = process.env.DEV_URL;
+
   try {
     /*console.log(event);*/
-    const body = await event.fetch('https://dev.ahmetbatukilic.com:3000/ping')
+    const body = await event.fetch(`${url}/ping`)
       .then(res => res.json())
       .catch(err => console.log(err));
-    console.log(body);
     return {
       type: 'get',
       status: 200,

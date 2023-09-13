@@ -4,20 +4,20 @@ definePageMeta({
 });
 const { t } = useI18n();
 
-const data = {
+const body = {
   name: 'Ahmet',
   mail: 'ah@gmail.com',
   message: 'test message',
 };
 
-const users = await $fetch('/api/ping', {
+const client = process.server || await $fetch('/api/ping', {
   method: 'GET',
   /*body: data,*/
 }).catch((error) => {
   console.log('error >>>', error);
 });
 
-console.log('users >>>', users);
+console.log('client >>>', client);
 
 
 </script>
