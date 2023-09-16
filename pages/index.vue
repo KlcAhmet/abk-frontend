@@ -30,31 +30,35 @@ console.log('client >>>', client);
       <div class='mt-5'>
         <ul class='flex justify-center items-center space-x-2'>
           <li>
-            <a class='flex items-center' href='https://github.com/KlcAhmet'
+            <a class='flex items-center hover:scale-150 transition duration-200' href='https://github.com/KlcAhmet'
                target='_blank' rel='noopener noreferrer nofollow'>
               <img class='h-9 w-8' src='@/assets/img/github.svg' alt='github logo' />
             </a>
           </li>
           <li>
-            <a class='flex items-center' href='https://www.linkedin.com/in/ahmet-batuhan-kılıç-b88975129/'
+            <a class='flex items-center hover:scale-150 transition duration-200'
+               href='https://www.linkedin.com/in/ahmet-batuhan-kılıç-b88975129/'
                target='_blank' rel='noopener noreferrer nofollow'>
               <img class='h-7 w-10' src='@/assets/img/linkedin.svg' alt='linkedin logo' />
             </a>
           </li>
           <li>
-            <a class='flex items-center' href='https://www.instagram.com/ab01001011/'
+            <a class='flex items-center hover:scale-150 transition duration-200'
+               href='https://www.instagram.com/ab01001011/'
                target='_blank' rel='noopener noreferrer nofollow'>
               <img class='h-7 w-7' src='@/assets/img/instagram.svg' alt='instagram logo' />
             </a>
           </li>
           <li>
-            <a class='flex items-center' href='https://g.page/AhmetBatuhanKilic?share'
+            <a class='flex items-center hover:scale-150 transition duration-200'
+               href='https://g.page/AhmetBatuhanKilic?share'
                target='_blank' rel='noopener noreferrer nofollow'>
               <img class='h-9 w-9' src='@/assets/img/google.svg' alt='google logo' />
             </a>
           </li>
           <li>
-            <a class='flex items-center' href='mailto:ahmetbatukilic@gmail.com' target='_blank'
+            <a class='flex items-center hover:scale-150 transition duration-200' href='mailto:ahmetbatukilic@gmail.com'
+               target='_blank'
                rel='noopener noreferrer nofollow'>
               <img class='h-9 w-9' src='@/assets/img/mail.svg' alt='mail logo' />
             </a>
