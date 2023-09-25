@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
     return {
       statusCode: response.statusCode,
       headers: response.headers,
+      tt: API_URL,
     };
   } catch (err) {
     return {
