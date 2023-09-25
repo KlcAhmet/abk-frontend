@@ -28,7 +28,8 @@ export default defineEventHandler(async (event) => {
   } catch (err) {
     console.dir(err);
     return {
-      status: 500,
+      error: err,
+      statusCode: 500,
     };
   }
 });
