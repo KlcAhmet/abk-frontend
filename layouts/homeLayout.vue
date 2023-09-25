@@ -32,4 +32,7 @@ const routeName = computed(() => 'homeLayout-' + (route.name as string));
 
   &-contributions
     background-image: url('@/assets/img/ast4.jpeg')
+
+  &-contact
+    background-image: url('@/assets/img/ast5.jpeg')
 </style>

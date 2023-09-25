@@ -1,1 +1,1 @@
-export { default as ticket } from './ticket';
+export * from './ticket';

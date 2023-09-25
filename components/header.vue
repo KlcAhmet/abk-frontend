@@ -61,6 +61,11 @@ const changeNavVisible = (val?: boolean): void => {
                 {{ t('contributions') }}
               </NuxtLink>
             </li>
+            <li>
+              <NuxtLink @click='changeNavVisible(true)' to='/contact'>
+                {{ t('contact') }}
+              </NuxtLink>
+            </li>
           </ul>
         </nav>
       </div>
@@ -87,6 +92,9 @@ const changeNavVisible = (val?: boolean): void => {
           </li>
           <li>
             <NuxtLink to='/contributions'>{{ t('contributions') }}</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to='/contact'>{{ t('contact') }}</NuxtLink>
           </li>
         </ul>
       </nav>
@@ -122,9 +130,11 @@ tr:
   about: "Hakkımda"
   career: "Kariyer"
   contributions: "Katkılar"
+  contact: "İletişim"
 en:
   index: "Home"
   about: "About"
   career: "Career"
   contributions: "Contributions"
+  contact: "Contact"
 </i18n>
