@@ -26,7 +26,6 @@ export default defineEventHandler(async (event) => {
       headers: response.headers,
     };
   } catch (err) {
-    console.dir(err);
     return {
       error: err,
       statusCode: 500,
