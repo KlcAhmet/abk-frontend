@@ -19,8 +19,6 @@ const sendMail = async () => {
       method: 'POST',
       body: ticket,
     });
-    const testPing = await $fetch('/api/ticket');
-    console.log('testPing >>>', testPing);
     if (res.statusCode === 200) {
       console.log('res >>>', res);
     } else {
