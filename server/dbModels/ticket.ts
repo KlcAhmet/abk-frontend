@@ -5,6 +5,5 @@ export type ITicket = {
 };
 
 export type ITicketResponse = {
-  statusCode: 200 | 400 | 422 | 429;
-  headers?: {}; // TODO: should be delete
+  statusCode: 200 | 400 | 422 | 429 | 500;
 }

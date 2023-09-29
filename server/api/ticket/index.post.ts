@@ -25,11 +25,9 @@ export default defineEventHandler(async (event) => {
 
     return {
       statusCode: response.statusCode,
-      headers: response.headers,
     };
   } catch (err) {
     return {
-      error: err,
       statusCode: 500,
     };
   }
