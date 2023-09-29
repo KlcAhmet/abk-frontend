@@ -1,11 +1,12 @@
-import { defineEventHandler, readBody } from 'h3';
-import { ITicket, ITicketResponse } from '~/server/dbModels';
+import { defineEventHandler, getHeaders, readBody } from 'h3';
+import { ITicket, ITicketResponse, IUserInfo } from '~/server/dbModels';
+import { CollectUsersInfo } from '~/server/api/mixins/collect-user-info';
 
 export default defineEventHandler(async (event) => {
-  const API_URL = process.env.API_URL;
-
+  const API_URL: string | undefined = process.env.API_URL;
+  const headers: IUserInfo = new CollectUsersInfo(getHeaders(event)).getUserRemoteInfo();
   const { name, mail, message }: ITicket = await readBody<ITicket>(event);
-  //console.log('event >>>', event.node.req.rawHeaders);
+
   try {
     if (![name, mail, message].every(Boolean)) {
       return {
@@ -17,10 +18,11 @@ export default defineEventHandler(async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...headers,
       },
       body: JSON.stringify({ name, mail, message }),
     });
-    console.log(response);
+
     return {
       statusCode: response.statusCode,
       headers: response.headers,
