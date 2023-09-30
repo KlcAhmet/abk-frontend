@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
   const headers: IUserInfo = new CollectUsersInfo(getHeaders(event)).getUserRemoteInfo();
   const { name, mail, message }: ITicket = await readBody<ITicket>(event);
 
+  console.log(name, mail, message);
   try {
     if (![name, mail, message].every(Boolean)) {
       return {
