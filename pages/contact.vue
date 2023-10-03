@@ -15,6 +15,15 @@ const ticket: Ref<ITicket> = ref({ // TODO: remove default values
   mail: '',
   message: '',
 });
+// local storage check and define
+/*const localStorageTicket: string | null = localStorage.getItem('ticket');*/
+if (process.client) {
+  const localStorageTicket: string | null = localStorage.getItem('ticket');
+  if (localStorageTicket) {
+    ticket.value = <ITicket>JSON.parse(localStorageTicket);
+  }
+}
+
 const validationErrors: IValidationErrors = ref({
   nameRequired: false,
   nameMax: false,
@@ -27,8 +36,11 @@ const validationErrors: IValidationErrors = ref({
 const validationReset: IValidationErrors = validationErrors.value;
 const isTicketPending: Ref<boolean> = ref(false);
 const resStatus: Ref<IResStatus> = ref(undefined);
-const sendMail = async () => {
+const sendMail = async (): Promise<void> => {
   isTicketPending.value = true;
+  // local storage
+  localStorage.setItem('ticket', JSON.stringify(ticket.value));
+
   try {
     const validation = await createTicketValidate(ticket.value);
 
@@ -48,6 +60,7 @@ const sendMail = async () => {
     isTicketPending.value = false;
     if (resStatus.value === 200) {
       validationErrors.value = validationReset;
+      localStorage.removeItem('ticket');
     }
   }
 };
