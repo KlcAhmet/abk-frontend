@@ -1,6 +1,6 @@
 import { defineEventHandler, getHeaders, readBody } from 'h3';
 import { ITicket, ITicketResponse, IUserInfo } from '~/server/dbModels';
-import { CollectUsersInfo } from '~/server/api/mixins/collect-user-info';
+import { CollectUsersInfo } from '~/server/mixins/collect-user-info';
 import { createTicketValidate } from '~/server/validations';
 
 export default defineEventHandler(async (event) => {
