@@ -16,6 +16,12 @@ const routeName = computed(() => 'homeLayout-' + (route.name as string));
 </template>
 
 <style lang='sass'>
+body
+  margin: 0 !important
+  padding: 0 !important
+  overflow: hidden !important
+  height: 100%
+  
 .homeLayout
   background-repeat: no-repeat
   background-position: center
@@ -32,4 +38,7 @@ const routeName = computed(() => 'homeLayout-' + (route.name as string));
 
   &-contributions
     background-image: url('@/assets/img/ast4.jpeg')
+
+  &-contact
+    background-image: url('@/assets/img/ast5.jpeg')
 </style>

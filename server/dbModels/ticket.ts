@@ -1,11 +1,9 @@
-import mongoose from 'mongoose';
+export type ITicket = {
+  name: string;
+  mail: string;
+  message: string;
+};
 
-const schema = new mongoose.Schema(
-  {
-    name: { type: String },
-    mail: { type: String },
-    message: String,
-  },
-  { timestamps: true, strict: true, strictQuery: true },
-);
-export default mongoose.model('abk-frontend', schema, 'tickets');
+export type ITicketResponse = {
+  statusCode: 200 | 400 | 422 | 429 | 500;
+}
