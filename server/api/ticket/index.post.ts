@@ -7,6 +7,9 @@ export default defineEventHandler(async (event) => {
   const API_URL: string | undefined = process.env.API_URL;
   const headers: IUserInfo = new CollectUsersInfo(getHeaders(event)).getUserRemoteInfo();
   const ticket: ITicket = await readBody<ITicket>(event);
+  const ticketResponse: ITicketResponse = {
+    statusCode: 200,
+  };
 
   try {
     const { isValid } = await createTicketValidate(ticket);
@@ -20,16 +23,12 @@ export default defineEventHandler(async (event) => {
         },
         body: JSON.stringify(ticket),
       });
-
-      return {
-        statusCode: response.statusCode,
-      };
+      ticketResponse.statusCode = response.statusCode;
     } else {
-      return {
-        statusCode: 400,
-      };
+      ticketResponse.statusCode = 400;
     }
 
+    return ticketResponse;
   } catch (err) {
     return {
       statusCode: 500,
