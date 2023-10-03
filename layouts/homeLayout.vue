@@ -16,12 +16,12 @@ const routeName = computed(() => 'homeLayout-' + (route.name as string));
 </template>
 
 <style lang='sass'>
-body
+html, body
   margin: 0 !important
   padding: 0 !important
   overflow: hidden !important
   height: 100%
-  
+
 .homeLayout
   background-repeat: no-repeat
   background-position: center
