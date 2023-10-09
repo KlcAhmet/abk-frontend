@@ -22,23 +22,6 @@ html, body
   overflow: hidden !important
   height: 100%
 
-.homeLayout
-  background-repeat: no-repeat
-  background-position: center
-  background-size: 100% 100%
-
-  &-index
-    background-image: url('@/assets/img/ast1.jpeg')
-
-  &-about
-    background-image: url('@/assets/img/ast2.jpeg')
-
-  &-career
-    background-image: url('@/assets/img/ast3.jpeg')
-
-  &-contributions
-    background-image: url('@/assets/img/ast4.jpeg')
-
-  &-contact
-    background-image: url('@/assets/img/ast5.jpeg')
+body
+  background-color: #000000
 </style>
