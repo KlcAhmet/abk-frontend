@@ -73,11 +73,6 @@ const changeNavVisible = (val?: boolean): void => {
   </header>
   <!-- desktop -->
   <header class='hidden relative h-24 lg:flex items-center px-5 border-b-2 border-sky-200/100'>
-    <div class='absolute inset-x-1/2 transform -translate-x-1/2 w-16 h-16 -ml-5'>
-      <figure>
-        <img src='@/assets/img/astronaut-icon.svg' alt='logo' />
-      </figure>
-    </div>
     <div class='ml-auto flex flex-nowrap py-3 px-8 bg-sky-700/[0.65] rounded'>
       <nav>
         <ul class='link flex flex-row flex-nowrap items-center space-x-4 text-xl font-bold'>
