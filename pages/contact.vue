@@ -10,7 +10,7 @@ definePageMeta({
 type IResStatus = ITicketResponse['statusCode'] | undefined;
 
 const { t } = useI18n();
-const ticket: Ref<ITicket> = ref({ // TODO: remove default values
+const ticket: Ref<ITicket> = ref({
   name: '',
   mail: '',
   message: '',
