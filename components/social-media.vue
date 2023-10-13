@@ -1,33 +1,39 @@
 <script setup lang='ts'>
+import githubIcon from '@/assets/img/github.svg';
+import linkedinIcon from '@/assets/img/linkedin.svg';
+import mailIcon from '@/assets/img/mail.png';
+import googleIcon from '@/assets/img/google.png';
+import instagramIcon from '@/assets/img/instagram.svg';
+
 const socialMedia = [
   {
     name: 'Github',
     link: 'https://github.com/KlcAhmet',
-    icon: '/_nuxt/assets/img/github.svg',
+    icon: githubIcon,
     alt: 'github logo',
   },
   {
     name: 'Linkedin',
     link: 'https://www.linkedin.com/in/ahmet-batuhan-kılıç-b88975129/',
-    icon: '/_nuxt/assets/img/linkedin.svg',
+    icon: linkedinIcon,
     alt: 'linkedin logo',
   },
   {
     name: 'Instagram',
     link: 'https://www.instagram.com/ab01001011/',
-    icon: '/_nuxt/assets/img/instagram.svg',
+    icon: instagramIcon,
     alt: 'instagram logo',
   },
   {
     name: 'Google',
     link: 'https://g.page/AhmetBatuhanKilic?share',
-    icon: '/_nuxt/assets/img/google.png',
+    icon: googleIcon,
     alt: 'google logo',
   },
   {
     name: 'ahmetbatukilic@gmail.com',
     link: 'mailto:ahmetbatukilic@gmail.com',
-    icon: '/_nuxt/assets/img/mail.png',
+    icon: mailIcon,
     alt: 'mail logo',
   },
 ];
