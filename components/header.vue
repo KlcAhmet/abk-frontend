@@ -23,80 +23,25 @@ const changeNavVisible = (val?: boolean): void => {
 </script>
 
 <template>
-  <!-- mobile -->
-  <header class='lg:hidden p-3'>
-    <div class='relative w-48 p-1 bg-sky-700/[0.65]' :class="navVisible ? 'rounded-t': 'rounded'">
-      <div class='flex flex-nowrap justify-between'>
-        <button type='button' @click='changeNavVisible()' class='flex items-center flex-nowrap w-full'>
-          <img class='w-8' src='@/assets/img/menu-nav.svg' alt='menu logo'>
-          <span class='ml-2 text-rose-300 font-bold'>{{ t(routeName) }}</span>
-        </button>
-        <div class='flex'>
-          <button v-if='langSelectVisible' type='button' class='rounded-full'
-                  @click='changeLangVisible'>
-            <img class='w-7' src='@/assets/img/world.svg' alt='world img' />
-          </button>
-          <select v-else v-model='locale' @change='changeLangVisible'>
-            <option value='tr'>TR</option>
-            <option value='en'>EN</option>
-          </select>
-        </div>
-      </div>
-      <div v-if='navVisible' class='absolute w-48 bg-sky-700/[0.65] left-0 rounded-b border-t border-white mt-1 p-1'>
-        <nav>
-          <ul class='link font-medium'>
-            <li>
-              <NuxtLink @click='changeNavVisible(true)' to='/'>{{ t('index') }}</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink @click='changeNavVisible(true)' to='/about'>{{ t('about') }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink @click='changeNavVisible(true)' to='/career'>{{ t('career') }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink @click='changeNavVisible(true)' to='/contributions'>
-                {{ t('contributions') }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink @click='changeNavVisible(true)' to='/contact'>
-                {{ t('contact') }}
-              </NuxtLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <!-- desktop -->
-  <header class='hidden relative h-24 lg:flex items-center px-5 border-b-2 border-sky-200/100'>
-    <div class='ml-auto flex flex-nowrap py-3 px-8 bg-sky-700/[0.65] rounded'>
+  <header class='relative flex pt-6 flex-nowrap overflow-x-scroll sm:overflow-hidden'>
+    <div class='ml-auto flex flex-nowrap items-center'>
       <nav>
-        <ul class='link flex flex-row flex-nowrap items-center space-x-4 text-xl font-bold'>
+        <ul class='text-white link flex flex-row flex-nowrap space-x-4 text-base font-bold'>
           <li>
             <NuxtLink to='/'>{{ t('index') }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink to='/about'>{{ t('about') }}</NuxtLink>
-          </li>
-          <li>
             <NuxtLink to='/career'>{{ t('career') }}</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to='/contributions'>{{ t('contributions') }}</NuxtLink>
           </li>
           <li>
             <NuxtLink to='/contact'>{{ t('contact') }}</NuxtLink>
           </li>
         </ul>
       </nav>
-      <div class='ml-4 flex'>
+      <div class='flex ml-4 h-10 min-w-[40px]'>
         <button v-if='langSelectVisible' type='button'
                 @click='changeLangVisible'>
-          <img class='w-10 h-8' src='@/assets/img/world.svg' alt='world img' />
+          <img class='h-10' src='@/assets/img/world.png' alt='world img' />
         </button>
         <select v-else v-model='locale' @change='changeLangVisible' class='w-10 h-8'>
           <option value='tr'>TR</option>
@@ -109,27 +54,22 @@ const changeNavVisible = (val?: boolean): void => {
 
 <style scoped lang='sass'>
 .link
-  @apply text-rose-300
   li
     a
       &:hover
-        @apply text-rose-800
+        @apply text-base-pink
 
 .router-link-active
-  @apply text-rose-800 underline
+  @apply text-base-pink
 </style>
 
 <i18n lang='yaml'>
 tr:
   index: "Anasayfa"
-  about: "Hakkımda"
   career: "Kariyer"
-  contributions: "Katkılar"
   contact: "İletişim"
 en:
   index: "Home"
-  about: "About"
   career: "Career"
-  contributions: "Contributions"
   contact: "Contact"
 </i18n>

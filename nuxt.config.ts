@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   // @ts-ignore
-  css: ['~/assets/css/main.sass'],
+  css: ['~/assets/css/main.sass', 'animate.css/animate.min.css'],
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',

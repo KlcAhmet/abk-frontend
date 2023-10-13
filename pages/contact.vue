@@ -3,6 +3,7 @@ import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { ITicket, ITicketResponse } from '~/server/dbModels';
 import { createTicketValidate, IValidationErrors } from '~/server/validations';
+import SocialMedia from '~/components/social-media.vue';
 
 definePageMeta({
   layout: 'home-layout',
@@ -67,53 +68,69 @@ const sendMail = async (): Promise<void> => {
 </script>
 
 <template>
-  <div class='h-full flex items-center'>
-    <div
-      class='w-full md:max-w-md max-h-[400px] overflow-y-auto bg-sky-900/[0.73] rounded-md mx-auto lg:ml-20 p-5 space-y-3'>
-      <form class='flex flex-col'>
-        <label class='text-white font-bold'>{{ t('name') }}
-          <span class='text-rose-400 ml-2'>
-            <template v-if='validationErrors.nameRequired'>{{ t('nameRequired') }}</template>
-            <template v-else-if='validationErrors.nameMax'>{{ t('nameMax') }}</template>
-          </span>
-        </label>
-        <input type='text' v-model.trim='ticket.name'
-               class='opacity-30 px-1.5 border-b-4 border-b-sky-500 focus-visible:outline-none'>
-        <label class='text-white font-bold'>Mail:
-          <span class='text-rose-400 ml-2'>
-            <template v-if='validationErrors.mailRequired'>{{ t('mailRequired') }}</template>
-            <template v-else-if='validationErrors.mailInvalid'>{{ t('mailInvalid') }}</template>
-            <template v-else-if='validationErrors.mailMax'>{{ t('mailMax') }}</template>
-          </span>
-        </label>
-        <input type='text' v-model.trim='ticket.mail'
-               class='opacity-30 px-1.5 border-b-4 border-b-sky-500 focus-visible:outline-none'>
-        <label class='text-white font-bold'>{{ t('message') }}
-          <span class='text-rose-400 ml-2'>
-            <template v-if='validationErrors.messageRequired'>{{ t('messageRequired') }}</template>
-            <template v-else-if='validationErrors.messageMax'>{{ t('messageMax') }}</template>
-          </span>
-        </label>
-        <textarea v-model.trim='ticket.message'
-                  class='opacity-30 px-1.5 border-b-4 border-b-sky-500 focus-visible:outline-none' />
-        <button class='mt-5 bg-rose-400 rounded-2xl w-1/2 mx-auto block p-1 hover:bg-rose-500' type='button'
-                :class='isTicketPending ? "cursor-not-allowed" : "cursor-pointer"'
-                :disabled='isTicketPending'
-                @click='sendMail'>
-          <LoadingSpinner v-show='isTicketPending' size='30' class='-mb-1' />
-          <span v-show='!isTicketPending' class='text-white font-bold text-2xl h-[30px]'>{{ t('send') }}</span>
-        </button>
-        <div class='min-h-[50px] mt-3'>
-          <p v-if='resStatus === 200' class='bg-sky-400 text-center text-white p-2'>
-            {{ t(`${resStatus}`) }}
-          </p>
-          <p v-else-if='resStatus' class='bg-rose-600 text-center text-white p-2'>
-            {{ t(`${resStatus}`) }}
-          </p>
+  <div class='py-28 sm:py-60 max-w-4xl'>
+    <div class='flex flex-col animate__fadeInUp animate__animated'>
+      <div class='border-b border-dashed border-base-white-500 pb-5 '>
+        <h1 class='text-white text-3xl font-bold'>
+          {{ t('contact') }}
+        </h1>
+      </div>
+      <div class='flex flex-col-reverse sm:flex-row'>
+        <div class='py-10 w-full sm:w-1/2'>
+          <div class='sm:max-w-[300px]'>
+            <socialMedia />
+          </div>
         </div>
-      </form>
-    </div>
+        <div class='py-10 w-full sm:w-1/2'>
+          <form class='flex flex-col space-y-3'>
+            <input type='text' v-model.trim='ticket.name' :placeholder="t('name')"
+                   class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-none'>
+            <label class='text-white font-bold'>
+              <span class='text-base-pink font-light text-sm'>
+                <template v-if='validationErrors.nameRequired'>{{ t('nameRequired') }}</template>
+                <template v-else-if='validationErrors.nameMax'>{{ t('nameMax') }}</template>
+              </span>
+            </label>
 
+            <input type='text' v-model.trim='ticket.mail' placeholder='Mail'
+                   class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-non'>
+            <label class='text-white font-bold'>
+              <span class='text-base-pink font-light text-sm'>
+                <template v-if='validationErrors.mailRequired'>{{ t('mailRequired') }}</template>
+                <template v-else-if='validationErrors.mailInvalid'>{{ t('mailInvalid') }}</template>
+                <template v-else-if='validationErrors.mailMax'>{{ t('mailMax') }}</template>
+              </span>
+            </label>
+
+            <textarea v-model.trim='ticket.message' :placeholder="t('message')"
+                      class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-non' />
+            <label class='text-white font-bold'>
+              <span class='text-base-pink font-light text-sm'>
+                <template v-if='validationErrors.messageRequired'>{{ t('messageRequired') }}</template>
+                <template v-else-if='validationErrors.messageMax'>{{ t('messageMax') }}</template>
+              </span>
+            </label>
+            <button
+              class='mt-5 bg-base-pink hover:bg-white rounded-2xl w-1/2 mx-auto block text-white hover:text-black h-[36px]'
+              type='button'
+              :class='isTicketPending ? "cursor-not-allowed" : "cursor-pointer"'
+              :disabled='isTicketPending'
+              @click='sendMail'>
+              <LoadingSpinner v-show='isTicketPending' size='30' class='-mb-1' />
+              <span v-show='!isTicketPending' class=''>{{ t('send') }}</span>
+            </button>
+            <div v-if='resStatus' class='mt-3 sm:rounded-lg bg-base-black-500 p-2 text-center text-white'>
+              <p v-if='resStatus === 200'>
+                {{ t(`${resStatus}`) }}
+              </p>
+              <p v-else-if='resStatus'>
+                {{ t(`${resStatus}`) }}
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -122,13 +139,14 @@ const sendMail = async (): Promise<void> => {
 
 <i18n lang='yaml'>
 tr:
-  name: "İsim:"
+  contact: "İletişim"
+  name: "İsim"
   nameRequired: "Gerekli"
   nameMax: "100 karakteri geçemez"
   mailRequired: "Gerekli"
   mailMax: "100 karakteri geçemez"
   mailInvalid: "Geçersiz Format"
-  message: "Mesaj:"
+  message: "Mesaj"
   messageRequired: "Gerekli"
   messageMax: "1000 karakteri geçemez"
   send: "Gönder"
@@ -138,13 +156,14 @@ tr:
   429: "Talepleriniz çok fazla, bir süre sonra tekrar deneyin."
   500: "Üzgünüz, bir iç sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin."
 en:
-  name: "Name:"
+  contact: "İletişim"
+  name: "Name"
   nameRequired: "Required"
   nameMax: "Not exceed 100 characters"
   mailRequired: "Required"
   mailMax: "Not exceed 100 characters"
   mailInvalid: "Invalid Format"
-  message: "Message:"
+  message: "Message"
   messageRequired: "Required"
   messageMax: "Not exceed 1000 characters"
   send: "Send"

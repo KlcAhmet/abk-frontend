@@ -14,12 +14,12 @@ definePageMeta({
 });
 </script>
 <template>
-  <div class='h-full flex items-center'>
+  <div class='flex items-center py-28 animate__fadeInUp animate__animated'>
     <div
-      class='max-w-lg max-h-80 overflow-y-scroll bg-sky-900/[0.73] rounded-md text-white mx-auto lg:ml-20 p-5 space-y-3'>
-      <div v-for='item in companies' :key='item'>
-        <h2 class='text-2xl font-bold text-[#ff5400]'>{{ t(`${item}.title`) }}</h2>
-        <p class='text-xl font-semibold text-[#ff8500]'>{{ t(`${item}.subtitle`) }}</p>
+      class='max-w-3xl text-white mx-auto space-y-3'>
+      <div v-for='item in companies' :key='item' class='px-5 py-2 sm:rounded-lg bg-base-black-500'>
+        <h2 class='text-2xl font-bold text-base-pink'>{{ t(`${item}.title`) }}</h2>
+        <p class='text-xl font-semibold text-base-pink-400'>{{ t(`${item}.subtitle`) }}</p>
         <p class='text-sm lg:text-base'>{{ t(`${item}.desc`) }}</p>
       </div>
     </div>
