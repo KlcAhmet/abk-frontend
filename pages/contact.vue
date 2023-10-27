@@ -81,54 +81,54 @@ const sendMail = async (): Promise<void> => {
             <socialMedia />
           </div>
         </div>
-        <div class='py-10 w-full sm:w-1/2'>
-          <form class='flex flex-col space-y-3'>
-            <input type='text' v-model.trim='ticket.name' :placeholder="t('name')"
-                   class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-none'>
-            <label class='text-white font-bold'>
-              <span class='text-base-pink font-light text-sm'>
-                <template v-if='validationErrors.nameRequired'>{{ t('nameRequired') }}</template>
-                <template v-else-if='validationErrors.nameMax'>{{ t('nameMax') }}</template>
-              </span>
-            </label>
+        <!--        <div class='py-10 w-full sm:w-1/2'>
+                  <form class='flex flex-col space-y-3'>
+                    <input type='text' v-model.trim='ticket.name' :placeholder="t('name')"
+                           class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-none'>
+                    <label class='text-white font-bold'>
+                      <span class='text-base-pink font-light text-sm'>
+                        <template v-if='validationErrors.nameRequired'>{{ t('nameRequired') }}</template>
+                        <template v-else-if='validationErrors.nameMax'>{{ t('nameMax') }}</template>
+                      </span>
+                    </label>
 
-            <input type='text' v-model.trim='ticket.mail' placeholder='Mail'
-                   class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-non'>
-            <label class='text-white font-bold'>
-              <span class='text-base-pink font-light text-sm'>
-                <template v-if='validationErrors.mailRequired'>{{ t('mailRequired') }}</template>
-                <template v-else-if='validationErrors.mailInvalid'>{{ t('mailInvalid') }}</template>
-                <template v-else-if='validationErrors.mailMax'>{{ t('mailMax') }}</template>
-              </span>
-            </label>
+                    <input type='text' v-model.trim='ticket.mail' placeholder='Mail'
+                           class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-non'>
+                    <label class='text-white font-bold'>
+                      <span class='text-base-pink font-light text-sm'>
+                        <template v-if='validationErrors.mailRequired'>{{ t('mailRequired') }}</template>
+                        <template v-else-if='validationErrors.mailInvalid'>{{ t('mailInvalid') }}</template>
+                        <template v-else-if='validationErrors.mailMax'>{{ t('mailMax') }}</template>
+                      </span>
+                    </label>
 
-            <textarea v-model.trim='ticket.message' :placeholder="t('message')"
-                      class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-non' />
-            <label class='text-white font-bold'>
-              <span class='text-base-pink font-light text-sm'>
-                <template v-if='validationErrors.messageRequired'>{{ t('messageRequired') }}</template>
-                <template v-else-if='validationErrors.messageMax'>{{ t('messageMax') }}</template>
-              </span>
-            </label>
-            <button
-              class='mt-5 bg-base-pink hover:bg-white rounded-2xl w-1/2 mx-auto block text-white hover:text-black h-[36px]'
-              type='button'
-              :class='isTicketPending ? "cursor-not-allowed" : "cursor-pointer"'
-              :disabled='isTicketPending'
-              @click='sendMail'>
-              <LoadingSpinner v-show='isTicketPending' size='30' class='-mb-1' />
-              <span v-show='!isTicketPending' class=''>{{ t('send') }}</span>
-            </button>
-            <div v-if='resStatus' class='mt-3 sm:rounded-lg bg-base-black-500 p-2 text-center text-white'>
-              <p v-if='resStatus === 200'>
-                {{ t(`${resStatus}`) }}
-              </p>
-              <p v-else-if='resStatus'>
-                {{ t(`${resStatus}`) }}
-              </p>
-            </div>
-          </form>
-        </div>
+                    <textarea v-model.trim='ticket.message' :placeholder="t('message')"
+                              class='px-5 py-2 sm:rounded-lg bg-base-black-500 text-base-white focus-visible:outline-non' />
+                    <label class='text-white font-bold'>
+                      <span class='text-base-pink font-light text-sm'>
+                        <template v-if='validationErrors.messageRequired'>{{ t('messageRequired') }}</template>
+                        <template v-else-if='validationErrors.messageMax'>{{ t('messageMax') }}</template>
+                      </span>
+                    </label>
+                    <button
+                      class='mt-5 bg-base-pink hover:bg-white rounded-2xl w-1/2 mx-auto block text-white hover:text-black h-[36px]'
+                      type='button'
+                      :class='isTicketPending ? "cursor-not-allowed" : "cursor-pointer"'
+                      :disabled='isTicketPending'
+                      @click='sendMail'>
+                      <LoadingSpinner v-show='isTicketPending' size='30' class='-mb-1' />
+                      <span v-show='!isTicketPending' class=''>{{ t('send') }}</span>
+                    </button>
+                    <div v-if='resStatus' class='mt-3 sm:rounded-lg bg-base-black-500 p-2 text-center text-white'>
+                      <p v-if='resStatus === 200'>
+                        {{ t(`${resStatus}`) }}
+                      </p>
+                      <p v-else-if='resStatus'>
+                        {{ t(`${resStatus}`) }}
+                      </p>
+                    </div>
+                  </form>
+                </div>-->
       </div>
     </div>
   </div>
