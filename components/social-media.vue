@@ -2,7 +2,6 @@
 import githubIcon from '@/assets/img/github.svg';
 import linkedinIcon from '@/assets/img/linkedin.svg';
 import mailIcon from '@/assets/img/mail.png';
-import googleIcon from '@/assets/img/google.png';
 import instagramIcon from '@/assets/img/instagram.svg';
 
 const socialMedia = [
@@ -23,12 +22,6 @@ const socialMedia = [
     link: 'https://www.instagram.com/ab01001011/',
     icon: instagramIcon,
     alt: 'instagram logo',
-  },
-  {
-    name: 'Google',
-    link: 'https://g.page/AhmetBatuhanKilic?share',
-    icon: googleIcon,
-    alt: 'google logo',
   },
   {
     name: 'ahmetbatukilic@gmail.com',
