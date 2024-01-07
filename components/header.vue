@@ -2,29 +2,11 @@
 
 const { locale, t, setLocale } = useI18n();
 const route = useRoute();
-const routeName = computed(() => route.name as string || 'index');
-const langSelectVisible = ref(true);
-const navVisible = ref(false);
-
-function changeLangVisible(): void {
-  langSelectVisible.value = !langSelectVisible.value;
-  setLocale(locale.value);
-
-  setTimeout(() => {
-    langSelectVisible.value = true;
-  }, 8000);
-}
-
-const changeNavVisible = (val?: boolean): void => {
-  if (val) navVisible.value = false;
-  else navVisible.value = !navVisible.value;
-
-};
 </script>
 
 <template>
-  <header class='relative flex pt-6 flex-nowrap overflow-x-scroll sm:overflow-hidden'>
-    <div class='ml-auto flex flex-nowrap items-center'>
+  <header class='pt-6'>
+    <div class='flex flex-nowrap justify-center md:justify-end items-center'>
       <nav>
         <ul class='text-white link flex flex-row flex-nowrap space-x-4 text-base font-bold'>
           <li>
@@ -39,14 +21,14 @@ const changeNavVisible = (val?: boolean): void => {
         </ul>
       </nav>
       <div class='flex ml-4 h-10 min-w-[40px]'>
-        <button v-if='langSelectVisible' type='button'
-                @click='changeLangVisible'>
-          <img class='h-10' src='@/assets/img/world.png' alt='world img' />
+        <button v-if='locale === "tr"' type='button'
+                @click='setLocale("en")'>
+          <img class='h-4' src='@/assets/img/us.svg' alt='world img' />
         </button>
-        <select v-else v-model='locale' @change='changeLangVisible' class='w-10 h-8'>
-          <option value='tr'>TR</option>
-          <option value='en'>EN</option>
-        </select>
+        <button v-if='locale === "en"' type='button'
+                @click='setLocale("tr")'>
+          <img class='h-4' src='@/assets/img/tr.svg' alt='world img' />
+        </button>
       </div>
     </div>
   </header>

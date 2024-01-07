@@ -57,7 +57,7 @@ en:
   onedio.title: "Onedio.com "
   onedio.subtitle: "Frontend Developer (Remote)"
   onedio.desc: "I worked remotely on Onedio.com and other Onedio projects. I used Tailwind CSS, SCSS, SASS, Vue, Nuxt, Composition api."
-  cool.title: "Cool Digital Solution s"
+  cool.title: "Cool Digital Solutions"
   cool.subtitle: "Fullstack Developer (Remote)"
   cool.desc: "Smartphone Rodo Consultant, I worked remotely on the project now named Magnus AI. We used Vue, SASS, API (Express JS), and MongoDB technologies. Website: getmagnus.com"
   fintech.title: "Fintech"

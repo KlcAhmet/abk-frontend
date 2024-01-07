@@ -1,31 +1,33 @@
 <script setup lang='ts'>
-import type { Ref } from 'vue';
+/*import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { ITicket, ITicketResponse } from '~/server/dbModels';
 import { createTicketValidate, IValidationErrors } from '~/server/validations';
-import SocialMedia from '~/components/social-media.vue';
+import SocialMedia from '~/components/social-media.vue';*/
+const { t } = useI18n();
 
 definePageMeta({
   layout: 'home-layout',
 });
+/*
 type IResStatus = ITicketResponse['statusCode'] | undefined;
 
-const { t } = useI18n();
 const ticket: Ref<ITicket> = ref({
   name: '',
   mail: '',
   message: '',
 });
 // local storage check and define
-/*const localStorageTicket: string | null = localStorage.getItem('ticket');*/
+/!*const localStorageTicket: string | null = localStorage.getItem('ticket');*!/
 if (process.client) {
   const localStorageTicket: string | null = localStorage.getItem('ticket');
   if (localStorageTicket) {
     ticket.value = <ITicket>JSON.parse(localStorageTicket);
   }
 }
+*/
 
-const validationErrors: IValidationErrors = ref({
+/*const validationErrors: IValidationErrors = ref({
   nameRequired: false,
   nameMax: false,
   mailInvalid: false,
@@ -33,8 +35,8 @@ const validationErrors: IValidationErrors = ref({
   mailRequired: false,
   messageRequired: false,
   messageMax: false,
-});
-const validationReset: IValidationErrors = validationErrors.value;
+});*/
+/*const validationReset: IValidationErrors = validationErrors.value;
 const isTicketPending: Ref<boolean> = ref(false);
 const resStatus: Ref<IResStatus> = ref(undefined);
 const sendMail = async (): Promise<void> => {
@@ -64,14 +66,14 @@ const sendMail = async (): Promise<void> => {
       localStorage.removeItem('ticket');
     }
   }
-};
+};*/
 </script>
 
 <template>
   <div class='py-28 sm:py-60 max-w-4xl'>
     <div class='flex flex-col animate__fadeInUp animate__animated'>
       <div class='border-b border-dashed border-base-white-500 pb-5 '>
-        <h1 class='text-white text-3xl font-bold'>
+        <h1 class='text-white text-3xl font-bold ml-1 sm:ml-0'>
           {{ t('contact') }}
         </h1>
       </div>
@@ -156,7 +158,7 @@ tr:
   429: "Talepleriniz çok fazla, bir süre sonra tekrar deneyin."
   500: "Üzgünüz, bir iç sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin."
 en:
-  contact: "İletişim"
+  contact: "Contact"
   name: "Name"
   nameRequired: "Required"
   nameMax: "Not exceed 100 characters"
