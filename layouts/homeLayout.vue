@@ -15,5 +15,5 @@ html, body
   padding: 0 !important
 
 body
-  background-color: #faa307
+  background-color: #2b2d42
 </style>

@@ -14,7 +14,7 @@ definePageMeta({
 });
 </script>
 <template>
-  <div class='flex items-center py-28 animate__fadeInUp animate__animated'>
+  <div class='flex items-center py-28'>
     <div
       class='max-w-3xl text-white mx-auto space-y-3'>
       <div v-for='item in companies' :key='item' class='px-5 py-2 sm:rounded-lg bg-base-black-500'>
