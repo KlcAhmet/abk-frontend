@@ -75,8 +75,8 @@ const sendMail = async (): Promise<void> => {
           {{ t('contact') }}
         </h1>
       </div>
-      <div class='flex flex-col-reverse sm:flex-row'>
-        <div class='py-10 w-full sm:w-1/2'>
+      <div class='flex flex-col md:flex-row pt-10'>
+        <div class='w-full'>
           <div class='sm:max-w-[300px]'>
             <socialMedia />
           </div>
